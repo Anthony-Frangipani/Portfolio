@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Reyes — Aerospace Engineer</title>
+<meta name="description" content="Aerospace engineering portfolio — guidance, control, propulsion, and structures work.">
+
+<!--
+  ================================================================
+  EDIT ME FIRST — placeholder content map
+  ================================================================
+  1. Your name / title:      search "Jordan Reyes" and "GUIDANCE, NAVIGATION"
+  2. Bio paragraph:          search "DESIGN BRIEF" section
+  3. Projects (5 of them):   search "DWG-A10" through "DWG-A50"
+  4. Skills / systems list:  search "SYSTEMS CHECK" section
+  5. Contact links:          search "CONTACT" section, bottom
+  6. Title block footer:     search "TITLE BLOCK" — drawn-by/date/etc.
+  Swap bracketed [placeholder] text and links. Photos: replace the
+  <div class="photo-placeholder"> blocks with <img> tags.
+  ================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper: #ECE7D6;
+    --paper-dim: #E1DAC3;
+    --ink: #1C2431;
+    --ink-soft: #4A5262;
+    --blueprint: #2E5C8A;
+    --blueprint-dim: #6C89A6;
+    --amber: #B96A1F;
+    --grid: #B9B3A0;
+    --line: #A9A28C;
+    --white: #F7F5EC;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(169,162,140,0.35) 27px, rgba(169,162,140,0.35) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(169,162,140,0.35) 27px, rgba(169,162,140,0.35) 28px),
+      var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--blueprint); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blueprint);
+  }
+
+  h1, h2, h3{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .wrap{ max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- corner registration marks ---------- */
+  .reg-mark{ position: fixed; width: 22px; height: 22px; pointer-events: none; z-index: 40; opacity: 0.55; }
+  .reg-mark::before, .reg-mark::after{ content:""; position:absolute; background: var(--ink); }
+  .reg-mark::before{ top:50%; left:0; width:100%; height:1px; transform: translateY(-50%); }
+  .reg-mark::after{ left:50%; top:0; height:100%; width:1px; transform: translateX(-50%); }
+  .reg-tl{ top:14px; left:14px; } .reg-tr{ top:14px; right:14px; }
+  .reg-bl{ bottom:14px; left:14px; } .reg-br{ bottom:14px; right:14px; }
+  @media (max-width: 640px){ .reg-mark{ display:none; } }
+
+  /* ---------- nav ---------- */
+  nav{
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(236,231,214,0.92);
+    backdrop-filter: blur(4px);
+    border-bottom: 1.5px solid var(--ink);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:14px; padding-bottom:14px; }
+  .nav-id{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; }
+  .nav-id b{ color: var(--blueprint); }
+  .nav-links{ display:flex; gap:22px; list-style:none; margin:0; padding:0; }
+  .nav-links a{ font-family:'IBM Plex Mono', monospace; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none; color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom:2px; }
+  .nav-links a:hover{ color: var(--blueprint); border-color: var(--blueprint); }
+  @media (max-width:640px){ .nav-links{ gap:14px; } .nav-links span{ display:none; } }
+
+  /* ---------- hero: spec plate ---------- */
+  .hero{ padding: 72px 0 56px; }
+  .plate{
+    border: 2px solid var(--ink);
+    background: var(--white);
+    padding: 34px 36px;
+    position: relative;
+  }
+  .plate::before{
+    content:""; position:absolute; inset:6px; border: 1px solid var(--grid); pointer-events:none;
+  }
+  .plate .rivet{ position:absolute; width:7px; height:7px; border-radius:50%; background: var(--ink-soft); opacity:0.5; }
+  .plate .rivet.a{ top:10px; left:10px; } .plate .rivet.b{ top:10px; right:10px; }
+  .plate .rivet.c{ bottom:10px; left:10px; } .plate .rivet.d{ bottom:10px; right:10px; }
+
+  .hero h1{ font-size: clamp(2.6rem, 6vw, 4.4rem); line-height:0.98; margin-top:10px; }
+  .hero .role{ font-family:'IBM Plex Mono', monospace; color: var(--blueprint); font-size:1rem; margin-top:10px; letter-spacing:0.04em; }
+  .hero .summary{ max-width: 60ch; margin-top:18px; color: var(--ink-soft); font-size:1.02rem; line-height:1.6; }
+
+  .status-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+  .status-chip{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase;
+    border:1px solid var(--ink); padding:5px 10px; display:flex; align-items:center; gap:7px;
+  }
+  .status-chip .dot{ width:7px; height:7px; border-radius:50%; background: var(--amber); }
+  .status-chip.go .dot{ background:#3F7D4C; }
+
+  /* ---------- section scaffolding ---------- */
+  section{ padding: 56px 0; border-bottom: 1px dashed var(--line); }
+  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom: 30px; }
+  .sec-head .num{ font-family:'IBM Plex Mono', monospace; color: var(--blueprint-dim); font-size:0.9rem; }
+  .sec-head h2{ font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+  .sec-head .rule{ flex:1; height:1px; background: var(--line); }
+
+  /* ---------- about / design brief ---------- */
+  .brief{ display:grid; grid-template-columns: 1fr; gap: 26px; }
+  .brief p{ line-height:1.75; color: var(--ink-soft); max-width: 68ch; }
+  .brief p + p{ margin-top:14px; }
+  .photo-placeholder{
+    width: 148px; height: 148px; border:1.5px solid var(--ink); background: repeating-linear-gradient(45deg, var(--paper-dim), var(--paper-dim) 6px, var(--white) 6px, var(--white) 12px);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color: var(--ink-soft); letter-spacing:0.04em; padding:8px;
+  }
+
+  /* ---------- projects: data sheets ---------- */
+  .sheets{ display:grid; grid-template-columns: 1fr; gap: 22px; }
+  .sheet{
+    border: 1.5px solid var(--ink); background: var(--white);
+  }
+  .sheet-head{
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom: 1.5px solid var(--ink); padding: 10px 16px;
+    background: var(--paper-dim);
+  }
+  .sheet-head .dwg{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.06em; color: var(--blueprint); }
+  .sheet-head .rev{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color: var(--ink-soft); }
+  .sheet-body{ padding: 20px 16px 22px; display:grid; grid-template-columns: 1fr; gap:14px; }
+  @media (min-width: 760px){ .sheet-body{ grid-template-columns: 1.3fr 0.9fr; } }
+  .sheet h3{ font-size:1.4rem; margin-bottom:8px; }
+  .sheet p{ color: var(--ink-soft); line-height:1.65; margin:0; }
+  .spec-list{ list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; }
+  .spec-list li{ display:flex; justify-content:space-between; gap:10px; padding:6px 0; border-bottom: 1px dotted var(--line); }
+  .spec-list li span:first-child{ color: var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; }
+  .spec-list li span:last-child{ text-align:right; color: var(--ink); }
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; margin-top:12px; }
+  .tag{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; border:1px solid var(--blueprint-dim); color: var(--blueprint); padding:2px 8px; }
+
+  /* ---------- systems check / skills ---------- */
+  .panel{ border: 1.5px solid var(--ink); background: var(--white); padding: 22px 24px; }
+  .gauges{ display:grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width:640px){ .gauges{ grid-template-columns: 1fr 1fr; } }
+  .gauge-group h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--blueprint); margin: 0 0 10px;
+  }
+  .gauge{ margin-bottom: 10px; }
+  .gauge-label{ display:flex; justify-content:space-between; font-size:0.85rem; margin-bottom:5px; }
+  .gauge-track{ height:8px; background: var(--paper-dim); border:1px solid var(--line); position:relative; }
+  .gauge-fill{ position:absolute; top:0; left:0; bottom:0; background: var(--blueprint); }
+  .gauge-fill::after{ content:""; position:absolute; right:-1px; top:-3px; bottom:-3px; width:2px; background: var(--amber); }
+
+  /* ---------- contact ---------- */
+  .contact-grid{ display:grid; grid-template-columns: 1fr; gap:14px; }
+  @media (min-width:640px){ .contact-grid{ grid-template-columns: repeat(3, 1fr); } }
+  .contact-card{
+    border: 1.5px solid var(--ink); padding: 18px; background: var(--white); text-decoration:none; color: var(--ink);
+    display:block; transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .contact-card:hover{ transform: translateY(-2px); box-shadow: 4px 4px 0 var(--ink); }
+  .contact-card .eyebrow{ margin-bottom:6px; display:block; }
+  .contact-card strong{ font-family:'IBM Plex Mono', monospace; font-size:0.95rem; }
+
+  /* ---------- title block footer ---------- */
+  footer{ padding: 0 0 40px; }
+  .titleblock{
+    border: 2px solid var(--ink); background: var(--white);
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+  }
+  @media (min-width:700px){ .titleblock{ grid-template-columns: repeat(4, 1fr); } }
+  .tb-cell{ padding: 12px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .tb-cell:last-child{ border-right: none; }
+  .tb-cell .k{ display:block; color: var(--ink-soft); letter-spacing:0.06em; text-transform:uppercase; font-size:0.62rem; margin-bottom:4px; }
+  .tb-cell .v{ color: var(--ink); }
+  .tb-title{ grid-column: 1 / -1; padding:14px; border-bottom:1px solid var(--ink); background: var(--paper-dim); }
+  .tb-title .v{ font-size:0.85rem; letter-spacing:0.04em; }
+</style>
+</head>
+<body>
+
+<div class="reg-mark reg-tl"></div>
+<div class="reg-mark reg-tr"></div>
+<div class="reg-mark reg-bl"></div>
+<div class="reg-mark reg-br"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-id">DWG SET <b>JR-2026</b> · SHEET 1 OF 1</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="plate">
+      <span class="rivet a"></span><span class="rivet b"></span><span class="rivet c"></span><span class="rivet d"></span>
+      <span class="eyebrow">Portfolio — Rev A — [City, ST]</span>
+      <h1>Jordan Reyes</h1>
+      <div class="role">GUIDANCE, NAVIGATION &amp; CONTROL / PROPULSION</div>
+      <p class="summary">
+        [One or two sentences on what you build and for whom — e.g. "I design attitude control
+        and propulsion systems for small satellites and sounding rockets, from concept sketch
+        through flight test."] Placeholder copy — replace with your own summary.
+      </p>
+      <div class="status-row">
+        <div class="status-chip go"><span class="dot"></span>Open to roles</div>
+        <div class="status-chip"><span class="dot"></span>[Location / remote pref]</div>
+        <div class="status-chip"><span class="dot"></span>[Clearance status, if applicable]</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§1</span><h2>Design Brief</h2><div class="rule"></div></div>
+    <div class="brief" style="display:flex; gap:28px; flex-wrap:wrap;">
+      <div class="photo-placeholder">PHOTO<br>PLACEHOLDER<br>400×400</div>
+      <div style="flex:1; min-width:260px;">
+        <p>
+          [Placeholder] I'm an aerospace engineer with a background in [flight dynamics /
+          propulsion / structures — pick your lane]. Most recently I worked on [program or
+          research area] at [company or lab], where I [one concrete outcome, ideally with a
+          number: mass saved, cost reduced, test campaign completed].
+        </p>
+        <p>
+          Outside of coursework and job projects, I've [build/fly/test hobby — e.g. "flown
+          high-power rockets with a local club" or "built a small wind tunnel for undergrad
+          research"]. I'm currently based in [city] and open to [full-time / internship / contract]
+          roles in [sub-discipline].
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§2</span><h2>Project Sheets</h2><div class="rule"></div></div>
+    <div class="sheets">
+
+      <article class="sheet">
+        <div class="sheet-head"><span class="dwg">DWG-A10 · CubeSat ADCS</span><span class="rev">REV C</span></div>
+        <div class="sheet-body">
+          <div>
+            <h3>[3U CubeSat Attitude Control]</h3>
+            <p>[Placeholder] Designed and tested a reaction-wheel attitude determination and
+              control subsystem for a university 3U CubeSat, including sensor fusion for a
+              magnetometer/gyro stack and a detumble-to-pointing control law.</p>
+            <div class="tags"><span class="tag">Control theory</span><span class="tag">Simulink</span><span class="tag">Embedded C</span></div>
+          </div>
+          <ul class="spec-list">
+            <li><span>Role</span><span>Lead, ADCS</span></li>
+            <li><span>Pointing accuracy</span><span>±[2]°</span></li>
+            <li><span>Timeline</span><span>[8 months]</span></li>
+            <li><span>Status</span><span>[Flight / Bench / Sim]</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head"><span class="dwg">DWG-A20 · UAV Wing Structure</span><span class="rev">REV B</span></div>
+        <div class="sheet-body">
+          <div>
+            <h3>[Composite Wing for Fixed-Wing UAV]</h3>
+            <p>[Placeholder] Ran structural sizing and layup design for a carbon-fiber wing
+              spar, then validated predicted deflection against static load-test data.</p>
+            <div class="tags"><span class="tag">FEA</span><span class="tag">Composites</span><span class="tag">MATLAB</span></div>
+          </div>
+          <ul class="spec-list">
+            <li><span>Role</span><span>Structures engineer</span></li>
+            <li><span>Wingspan</span><span>[2.4 m]</span></li>
+            <li><span>Mass saved</span><span>[18%]</span></li>
+            <li><span>Status</span><span>[Test complete]</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head"><span class="dwg">DWG-A30 · Cold-Gas Thruster Test Stand</span><span class="rev">REV A</span></div>
+        <div class="sheet-body">
+          <div>
+            <h3>[Propulsion Test Stand + Data Acquisition]</h3>
+            <p>[Placeholder] Built a load-cell test stand and DAQ pipeline to characterize
+              thrust curves for a small cold-gas thruster across three propellant pressures.</p>
+            <div class="tags"><span class="tag">LabVIEW</span><span class="tag">DAQ</span><span class="tag">CAD</span></div>
+          </div>
+          <ul class="spec-list">
+            <li><span>Role</span><span>Test engineer</span></li>
+            <li><span>Peak thrust</span><span>[4.2 N]</span></li>
+            <li><span>Firings logged</span><span>[40+]</span></li>
+            <li><span>Status</span><span>[Complete]</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head"><span class="dwg">DWG-A40 · Trajectory Optimization</span><span class="rev">REV A</span></div>
+        <div class="sheet-body">
+          <div>
+            <h3>[Low-Thrust Trajectory Optimization Tool]</h3>
+            <p>[Placeholder] Wrote a Python tool using direct collocation to optimize
+              low-thrust transfer trajectories, benchmarked against a known GTO-to-GEO case.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">Orbital mechanics</span><span class="tag">Optimization</span></div>
+          </div>
+          <ul class="spec-list">
+            <li><span>Role</span><span>Solo project</span></li>
+            <li><span>Δv improvement</span><span>[6%]</span></li>
+            <li><span>Solve time</span><span>[&lt;90 s]</span></li>
+            <li><span>Status</span><span>[Open source]</span></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="sheet">
+        <div class="sheet-head"><span class="dwg">DWG-A50 · Wind Tunnel Study</span><span class="rev">REV A</span></div>
+        <div class="sheet-body">
+          <div>
+            <h3>[Subsonic Wind Tunnel Airfoil Study]</h3>
+            <p>[Placeholder] Ran a subsonic wind tunnel campaign comparing lift/drag polars
+              for three airfoil sections against XFOIL predictions.</p>
+            <div class="tags"><span class="tag">XFOIL</span><span class="tag">Wind tunnel</span><span class="tag">Data analysis</span></div>
+          </div>
+          <ul class="spec-list">
+            <li><span>Role</span><span>Course project</span></li>
+            <li><span>Reynolds range</span><span>[1–3]×10⁵</span></li>
+            <li><span>Sections tested</span><span>[3]</span></li>
+            <li><span>Status</span><span>[Report published]</span></li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§3</span><h2>Systems Check</h2><div class="rule"></div></div>
+    <div class="panel">
+      <div class="gauges">
+        <div class="gauge-group">
+          <h4>Analysis &amp; Simulation</h4>
+          <div class="gauge"><div class="gauge-label"><span>MATLAB / Simulink</span><span>[90%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:90%"></div></div></div>
+          <div class="gauge"><div class="gauge-label"><span>Python (numerical)</span><span>[85%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:85%"></div></div></div>
+          <div class="gauge"><div class="gauge-label"><span>FEA (ANSYS / Nastran)</span><span>[70%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:70%"></div></div></div>
+        </div>
+        <div class="gauge-group">
+          <h4>Hardware &amp; Test</h4>
+          <div class="gauge"><div class="gauge-label"><span>CAD (SolidWorks / CATIA)</span><span>[80%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:80%"></div></div></div>
+          <div class="gauge"><div class="gauge-label"><span>DAQ &amp; instrumentation</span><span>[75%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:75%"></div></div></div>
+          <div class="gauge"><div class="gauge-label"><span>Embedded C</span><span>[65%]</span></div><div class="gauge-track"><div class="gauge-fill" style="width:65%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§4</span><h2>Contact</h2><div class="rule"></div></div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:jordan.reyes@example.com">
+        <span class="eyebrow">Email</span><strong>jordan.reyes@example.com</strong>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+        <span class="eyebrow">LinkedIn</span><strong>linkedin.com/in/your-handle</strong>
+      </a>
+      <a class="contact-card" href="https://github.com/your-handle" target="_blank" rel="noopener">
+        <span class="eyebrow">GitHub</span><strong>github.com/your-handle</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="titleblock">
+      <div class="tb-title"><span class="k">Title</span><span class="v">Jordan Reyes — Aerospace Portfolio</span></div>
+      <div class="tb-cell"><span class="k">Drawn by</span><span class="v">[Your Name]</span></div>
+      <div class="tb-cell"><span class="k">Date</span><span class="v">[Aug 2026]</span></div>
+      <div class="tb-cell"><span class="k">Scale</span><span class="v">1:1</span></div>
+      <div class="tb-cell"><span class="k">Dwg No.</span><span class="v">JR-2026-A</span></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
