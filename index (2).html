@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Reyes — Aerospace Engineering Portfolio</title>
+<meta name="description" content="Aerospace engineering portfolio following the MIT AeroAstro CommKit project-page structure.">
+
+<!--
+  ================================================================
+  EDIT ME FIRST — placeholder content map
+  ================================================================
+  This layout follows the MIT AeroAstro CommKit Portfolio guide:
+  one project per page/section, each with: your name at the top,
+  a clear objective, 2+ visuals, your specific contribution
+  (strong action verbs), measured results, and tools/skills used.
+  Guide: https://mitcommlab.mit.edu/aeroastro/commkit/portfolios/
+
+  1. Cover info:        search "COVER" — name, email, school, major, grad year
+  2. Project 1 (EPS):   search "PROJECT 01" — tailored to a CubeSat EPS example,
+                         swap in your real numbers/specs
+  3. Project 2-4:       search "PROJECT 02" / "03" / "04" — swap in your work
+  4. Visual placeholders: replace <div class="visual-placeholder"> with <img> tags
+                         (2-6 visuals per project per the guide, not walls of text)
+  5. Skills strip:      search "SKILLS &amp; TOOLS" tags at bottom of each project
+  6. Contact:           search "CONTACT" section near the bottom
+
+  Reminder from the guide: keep each project skimmable in ~30 seconds.
+  Pick your 3-4 strongest, most relevant projects — not everything you've done.
+  ================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper: #ECE7D6;
+    --paper-dim: #E1DAC3;
+    --ink: #1C2431;
+    --ink-soft: #4A5262;
+    --blueprint: #2E5C8A;
+    --blueprint-dim: #6C89A6;
+    --amber: #B96A1F;
+    --grid: #B9B3A0;
+    --line: #A9A28C;
+    --white: #F7F5EC;
+    --good: #3F7D4C;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  body{
+    margin: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(169,162,140,0.35) 27px, rgba(169,162,140,0.35) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, rgba(169,162,140,0.35) 27px, rgba(169,162,140,0.35) 28px),
+      var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--blueprint); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--amber); outline-offset: 3px; }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blueprint);
+  }
+
+  h1, h2, h3{
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .wrap{ max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- corner registration marks ---------- */
+  .reg-mark{ position: fixed; width: 22px; height: 22px; pointer-events: none; z-index: 40; opacity: 0.55; }
+  .reg-mark::before, .reg-mark::after{ content:""; position:absolute; background: var(--ink); }
+  .reg-mark::before{ top:50%; left:0; width:100%; height:1px; transform: translateY(-50%); }
+  .reg-mark::after{ left:50%; top:0; height:100%; width:1px; transform: translateX(-50%); }
+  .reg-tl{ top:14px; left:14px; } .reg-tr{ top:14px; right:14px; }
+  .reg-bl{ bottom:14px; left:14px; } .reg-br{ bottom:14px; right:14px; }
+  @media (max-width: 640px){ .reg-mark{ display:none; } }
+
+  /* ---------- nav — carries name on every "page" per guide ---------- */
+  nav{
+    position: sticky; top: 0; z-index: 30;
+    background: rgba(236,231,214,0.94);
+    backdrop-filter: blur(4px);
+    border-bottom: 1.5px solid var(--ink);
+  }
+  nav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:13px; padding-bottom:13px; }
+  .nav-id{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; letter-spacing:0.04em; }
+  .nav-id b{ color: var(--blueprint); }
+  .nav-links{ display:flex; gap:20px; list-style:none; margin:0; padding:0; flex-wrap: wrap; }
+  .nav-links a{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.07em; text-decoration:none; color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom:2px; }
+  .nav-links a:hover{ color: var(--blueprint); border-color: var(--blueprint); }
+  @media (max-width:700px){ .nav-links{ display:none; } }
+
+  /* ---------- cover page ---------- */
+  .cover{ padding: 70px 0 50px; }
+  .plate{
+    border: 2px solid var(--ink);
+    background: var(--white);
+    padding: 34px 36px;
+    position: relative;
+  }
+  .plate::before{ content:""; position:absolute; inset:6px; border: 1px solid var(--grid); pointer-events:none; }
+  .plate .rivet{ position:absolute; width:7px; height:7px; border-radius:50%; background: var(--ink-soft); opacity:0.5; }
+  .plate .rivet.a{ top:10px; left:10px; } .plate .rivet.b{ top:10px; right:10px; }
+  .plate .rivet.c{ bottom:10px; left:10px; } .plate .rivet.d{ bottom:10px; right:10px; }
+
+  .cover h1{ font-size: clamp(2.4rem, 5.6vw, 4rem); line-height:0.98; margin-top:10px; }
+  .cover .role{ font-family:'IBM Plex Mono', monospace; color: var(--blueprint); font-size:0.98rem; margin-top:10px; letter-spacing:0.03em; }
+  .cover .summary{ max-width: 62ch; margin-top:16px; color: var(--ink-soft); font-size:1rem; line-height:1.6; }
+
+  .cover-facts{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--ink); margin-top: 24px;
+  }
+  @media (min-width:600px){ .cover-facts{ grid-template-columns: repeat(4, 1fr); } }
+  .cover-fact{ background: var(--white); padding: 10px 14px; font-family:'IBM Plex Mono', monospace; }
+  .cover-fact .k{ display:block; font-size:0.62rem; letter-spacing:0.07em; text-transform:uppercase; color: var(--ink-soft); margin-bottom:4px; }
+  .cover-fact .v{ font-size:0.82rem; color: var(--ink); }
+
+  /* ---------- section scaffolding ---------- */
+  section{ padding: 0; }
+  .sec-head{ display:flex; align-items:baseline; gap:16px; margin-bottom: 22px; }
+  .sec-head .num{ font-family:'IBM Plex Mono', monospace; color: var(--blueprint-dim); font-size:0.9rem; }
+  .sec-head h2{ font-size: clamp(1.5rem, 3.2vw, 2rem); }
+  .sec-head .rule{ flex:1; height:1px; background: var(--line); }
+
+  .intro-note{ padding: 40px 0 10px; }
+  .intro-note p{ max-width: 68ch; color: var(--ink-soft); line-height:1.7; }
+
+  /* ---------- project pages ---------- */
+  .project-page{
+    border-top: 1.5px solid var(--ink);
+    padding: 46px 0;
+  }
+  .project-page:last-of-type{ border-bottom: 1.5px solid var(--ink); }
+
+  .proj-masthead{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;
+    margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px dashed var(--line);
+  }
+  .proj-masthead .who{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--ink-soft); letter-spacing:0.04em; }
+  .proj-masthead .dwg{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--blueprint); }
+
+  .proj-title h3{ font-size: clamp(1.5rem, 3.4vw, 2.1rem); }
+  .proj-title .subtitle{ font-family:'IBM Plex Mono', monospace; font-size:0.85rem; color: var(--blueprint); margin-top:6px; }
+
+  .objective-box{
+    border: 1.5px solid var(--ink); background: var(--white); padding: 16px 18px; margin: 18px 0 26px;
+  }
+  .objective-box .eyebrow{ display:block; margin-bottom:8px; }
+  .objective-box ul{ margin:0; padding-left: 18px; color: var(--ink-soft); line-height:1.6; }
+  .objective-box li{ margin-bottom:4px; }
+
+  .visual-row{ display:grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 26px; }
+  @media (min-width:700px){ .visual-row{ grid-template-columns: 1fr 1fr; } }
+  .visual-block{ border: 1.5px solid var(--ink); background: var(--white); }
+  .visual-placeholder{
+    aspect-ratio: 4 / 3; width:100%;
+    background: repeating-linear-gradient(45deg, var(--paper-dim), var(--paper-dim) 8px, var(--white) 8px, var(--white) 16px);
+    display:flex; align-items:center; justify-content:center; text-align:center; padding: 12px;
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color: var(--ink-soft); letter-spacing:0.03em;
+    border-bottom: 1px solid var(--ink);
+  }
+  .visual-caption{ padding: 8px 12px; font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--ink-soft); }
+
+  .proj-columns{ display:grid; grid-template-columns: 1fr; gap: 22px; margin-bottom: 20px; }
+  @media (min-width:760px){ .proj-columns{ grid-template-columns: 1fr 1fr; } }
+
+  .col-block h4{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; letter-spacing:0.07em; text-transform:uppercase;
+    color: var(--blueprint); margin: 0 0 10px;
+  }
+  .col-block ul{ margin:0; padding-left: 18px; color: var(--ink-soft); line-height:1.65; }
+  .col-block li{ margin-bottom:6px; }
+  .col-block li b{ color: var(--ink); }
+
+  .results-strip{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line);
+    border: 1px solid var(--ink); margin-bottom: 20px;
+  }
+  @media (min-width:600px){ .results-strip{ grid-template-columns: repeat(3, 1fr); } }
+  .result-cell{ background: var(--white); padding: 12px 14px; font-family:'IBM Plex Mono', monospace; }
+  .result-cell .k{ display:block; font-size:0.62rem; letter-spacing:0.06em; text-transform:uppercase; color: var(--ink-soft); margin-bottom:4px; }
+  .result-cell .v{ font-size:0.86rem; color: var(--ink); }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:6px; }
+  .tag{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; border:1px solid var(--blueprint-dim); color: var(--blueprint); padding:3px 9px; }
+
+  /* ---------- contact ---------- */
+  .contact-section{ padding: 46px 0 60px; }
+  .contact-grid{ display:grid; grid-template-columns: 1fr; gap:14px; }
+  @media (min-width:640px){ .contact-grid{ grid-template-columns: repeat(3, 1fr); } }
+  .contact-card{
+    border: 1.5px solid var(--ink); padding: 18px; background: var(--white); text-decoration:none; color: var(--ink);
+    display:block; transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .contact-card:hover{ transform: translateY(-2px); box-shadow: 4px 4px 0 var(--ink); }
+  .contact-card .eyebrow{ margin-bottom:6px; display:block; }
+  .contact-card strong{ font-family:'IBM Plex Mono', monospace; font-size:0.95rem; }
+
+  /* ---------- title block footer ---------- */
+  footer{ padding: 0 0 40px; }
+  .titleblock{
+    border: 2px solid var(--ink); background: var(--white);
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem;
+  }
+  @media (min-width:700px){ .titleblock{ grid-template-columns: repeat(4, 1fr); } }
+  .tb-cell{ padding: 12px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .tb-cell:last-child{ border-right: none; }
+  .tb-cell .k{ display:block; color: var(--ink-soft); letter-spacing:0.06em; text-transform:uppercase; font-size:0.62rem; margin-bottom:4px; }
+  .tb-cell .v{ color: var(--ink); }
+  .tb-title{ grid-column: 1 / -1; padding:14px; border-bottom:1px solid var(--ink); background: var(--paper-dim); }
+  .tb-title .v{ font-size:0.85rem; letter-spacing:0.04em; }
+</style>
+</head>
+<body>
+
+<div class="reg-mark reg-tl"></div>
+<div class="reg-mark reg-tr"></div>
+<div class="reg-mark reg-bl"></div>
+<div class="reg-mark reg-br"></div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-id">JORDAN REYES · <b>AEROSPACE PORTFOLIO</b></div>
+    <ul class="nav-links">
+      <li><a href="#p1">EduSAT (EPS)</a></li>
+      <li><a href="#p2">SAR Proposal</a></li>
+      <li><a href="#p3">Materials</a></li>
+      <li><a href="#p4">Glider</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= COVER ================= -->
+<header class="cover">
+  <div class="wrap">
+    <div class="plate">
+      <span class="rivet a"></span><span class="rivet b"></span><span class="rivet c"></span><span class="rivet d"></span>
+      <span class="eyebrow">Portfolio — Rev A</span>
+      <h1>Jordan Reyes</h1>
+      <div class="role">AEROSPACE ENGINEERING — ELECTRICAL POWER SYSTEMS &amp; MISSION DESIGN</div>
+      <p class="summary">
+        [1-2 sentence narrative tailored to the role you're applying for — the guide
+        recommends leading with whichever 3-4 projects best match the position, so
+        write this summary to match too.] Placeholder — replace with your own.
+      </p>
+      <div class="cover-facts">
+        <div class="cover-fact"><span class="k">School</span><span class="v">[Florida Institute of Technology]</span></div>
+        <div class="cover-fact"><span class="k">Major</span><span class="v">[Aerospace Engineering]</span></div>
+        <div class="cover-fact"><span class="k">Grad Year</span><span class="v">[Expected 2027]</span></div>
+        <div class="cover-fact"><span class="k">Email</span><span class="v">[jordan.reyes@example.com]</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap intro-note">
+  <p>
+    Four projects below — current senior design work leads, followed by a mission
+    proposal, a materials research project, and a CAD design project. Reorder these
+    per application to lead with whichever is most relevant to the role. Each follows
+    the same structure: objective, visuals, my specific contribution, and measured
+    results, so a reviewer can skim any one in under a minute.
+  </p>
+</div>
+
+<!-- ================= PROJECT 01 — EduSAT / LeDisco ================= -->
+<article class="project-page" id="p1">
+  <div class="wrap">
+    <div class="proj-masthead">
+      <span class="who">JORDAN REYES</span>
+      <span class="dwg">PROJECT 01 / 04</span>
+    </div>
+
+    <div class="proj-title">
+      <h3>EduSAT | LeDisco — 6U CubeSat EPS</h3>
+      <div class="subtitle">Senior Design · Electrical Power Systems (EPS) Subteam · Spring 2026–Present</div>
+    </div>
+
+    <div class="objective-box">
+      <span class="eyebrow">Objective</span>
+      <ul>
+        <li><b>What:</b> Develop the Electrical Power System for a 6U CubeSat with deployable solar panels and a laser communication payload — from SRR-derived requirements through component down-selection ahead of PDR.</li>
+        <li><b>Why / who:</b> Supports a 10-member senior design team building the full spacecraft; EPS choices directly constrain what the payload, comms, and structures subsystems can do.</li>
+        <li><b>Requirements:</b> Power, mass, and cost constraints derived from SRR outputs for solar array, battery, and power board selection.</li>
+      </ul>
+    </div>
+
+    <div class="visual-row">
+      <div class="visual-block">
+        <div class="visual-placeholder">SYSTEM-LEVEL VISUAL<br>[CubeSat CAD render or block diagram<br>showing EPS in context of full spacecraft]</div>
+        <div class="visual-caption">Fig. 1 — [Caption: full spacecraft with EPS highlighted]</div>
+      </div>
+      <div class="visual-block">
+        <div class="visual-placeholder">SUBSYSTEM VISUAL<br>[Trade study matrix, solar cell/battery<br>comparison table, or power budget chart]</div>
+        <div class="visual-caption">Fig. 2 — [Caption: EPS trade study or requirements table]</div>
+      </div>
+    </div>
+
+    <div class="proj-columns">
+      <div class="col-block">
+        <h4>My Contribution</h4>
+        <ul>
+          <li><b>Conducted</b> trade studies on deployable solar array and battery technologies, evaluating options against power, mass, and cost requirements derived from SRR outputs.</li>
+          <li><b>Developed</b> EPS-level requirements following SRR, informing ongoing down-selection of solar cells, batteries, and power boards ahead of PDR.</li>
+          <li><b>Collaborated</b> with payload, structures, and communications subsystems to define EPS interface requirements and power budget constraints.</li>
+        </ul>
+      </div>
+      <div class="col-block">
+        <h4>Status &amp; Next Steps</h4>
+        <ul>
+          <li>Passed <b>SRR</b> (System Requirements Review).</li>
+          <li>Currently progressing maturity from SRR toward <b>PDR</b>, finalizing component down-selection.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="results-strip">
+      <div class="result-cell"><span class="k">Team size</span><span class="v">10-member senior design team</span></div>
+      <div class="result-cell"><span class="k">Payload</span><span class="v">Deployable solar panels + laser comms</span></div>
+      <div class="result-cell"><span class="k">Review status</span><span class="v">SRR complete → PDR</span></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Power systems</span><span class="tag">CubeSat</span><span class="tag">MATLAB</span><span class="tag">Trade studies</span>
+    </div>
+  </div>
+</article>
+
+<!-- ================= PROJECT 02 — SAR Satellite Mission Proposal ================= -->
+<article class="project-page" id="p2">
+  <div class="wrap">
+    <div class="proj-masthead">
+      <span class="who">JORDAN REYES</span>
+      <span class="dwg">PROJECT 02 / 04</span>
+    </div>
+
+    <div class="proj-title">
+      <h3>SAR Satellite Mission Proposal</h3>
+      <div class="subtitle">Team Proposal · EPS Lead · Spring 2026</div>
+    </div>
+
+    <div class="objective-box">
+      <span class="eyebrow">Objective</span>
+      <ul>
+        <li><b>What:</b> Propose a full mission architecture for a Synthetic Aperture Radar (SAR) satellite, spanning launch, space, and ground segments.</li>
+        <li><b>Why / who:</b> Team proposal exercise covering mission requirements definition and cost estimation for a SAR mission.</li>
+        <li><b>Requirements:</b> Power requirements across distinct mission modes and operational states, driven by SAR's high peak-power radar duty cycle.</li>
+      </ul>
+    </div>
+
+    <div class="visual-row">
+      <div class="visual-block">
+        <div class="visual-placeholder">SYSTEM-LEVEL VISUAL<br>[Mission architecture diagram:<br>launch, space, ground segments]</div>
+        <div class="visual-caption">Fig. 1 — [Caption: full mission architecture]</div>
+      </div>
+      <div class="visual-block">
+        <div class="visual-placeholder">SUBSYSTEM VISUAL<br>[Power-by-mode table or EPS block diagram]</div>
+        <div class="visual-caption">Fig. 2 — [Caption: EPS power modes analysis]</div>
+      </div>
+    </div>
+
+    <div class="proj-columns">
+      <div class="col-block">
+        <h4>My Contribution</h4>
+        <ul>
+          <li><b>Served</b> as EPS Lead, defining power requirements across mission modes and states.</li>
+          <li><b>Contributed</b> EPS analysis within a full mission architecture proposal spanning launch, space, and ground segments, mission requirements, and cost estimation.</li>
+        </ul>
+      </div>
+      <div class="col-block">
+        <h4>Evaluation</h4>
+        <ul>
+          <li>[Outcome of the proposal — e.g. class grade, panel feedback, or whether it was selected/presented.]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="results-strip">
+      <div class="result-cell"><span class="k">Role</span><span class="v">EPS Lead</span></div>
+      <div class="result-cell"><span class="k">Scope</span><span class="v">Launch, space &amp; ground segments</span></div>
+      <div class="result-cell"><span class="k">Mission type</span><span class="v">Synthetic Aperture Radar</span></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Power systems</span><span class="tag">Mission architecture</span><span class="tag">Cost estimation</span>
+    </div>
+  </div>
+</article>
+
+<!-- ================= PROJECT 03 — Materials Science Project ================= -->
+<article class="project-page" id="p3">
+  <div class="wrap">
+    <div class="proj-masthead">
+      <span class="who">JORDAN REYES</span>
+      <span class="dwg">PROJECT 03 / 04</span>
+    </div>
+
+    <div class="proj-title">
+      <h3>Cryogenic Composite Failure Study</h3>
+      <div class="subtitle">Materials Science Project · Spring 2025</div>
+    </div>
+
+    <div class="objective-box">
+      <span class="eyebrow">Objective</span>
+      <ul>
+        <li><b>What:</b> Investigate rate-dependent composite failure caused by cryogenic embrittlement and evaluate a ceramic matrix composite substitution.</li>
+        <li><b>Why / who:</b> Extreme low-temperature environments (e.g. cryogenic propellant tanks) degrade mechanical properties of standard composites — motivating a material substitution study.</li>
+        <li><b>Requirements:</b> Preserve mechanical performance at extreme low temperatures; characterize failure under combined loading.</li>
+      </ul>
+    </div>
+
+    <div class="visual-row">
+      <div class="visual-block">
+        <div class="visual-placeholder">ANALYSIS VISUAL<br>[Delamination diagram or<br>failure mode schematic]</div>
+        <div class="visual-caption">Fig. 1 — [Caption: interlaminar separation under combined loading]</div>
+      </div>
+      <div class="visual-block">
+        <div class="visual-placeholder">RESULTS VISUAL<br>[Property comparison: standard composite<br>vs. ceramic matrix composite]</div>
+        <div class="visual-caption">Fig. 2 — [Caption: mechanical property comparison at cryogenic temperatures]</div>
+      </div>
+    </div>
+
+    <div class="proj-columns">
+      <div class="col-block">
+        <h4>My Contribution</h4>
+        <ul>
+          <li><b>Researched</b> rate-dependent composite failure due to cryogenic embrittlement and proposed a ceramic matrix composite substitution to preserve mechanical properties at extreme low temperatures.</li>
+          <li><b>Analyzed</b> dynamic delamination in composites under combined shear and normal loading, identifying interlaminar separation as a primary failure mode.</li>
+        </ul>
+      </div>
+      <div class="col-block">
+        <h4>Evaluation</h4>
+        <ul>
+          <li>Findings contributed to data-driven design recommendations for material selection under cryogenic, combined-load conditions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="results-strip">
+      <div class="result-cell"><span class="k">Failure mode identified</span><span class="v">Interlaminar separation</span></div>
+      <div class="result-cell"><span class="k">Loading condition</span><span class="v">Combined shear + normal</span></div>
+      <div class="result-cell"><span class="k">Proposed fix</span><span class="v">Ceramic matrix composite</span></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Material testing &amp; selection</span><span class="tag">Composites</span><span class="tag">Technical report writing</span>
+    </div>
+  </div>
+</article>
+
+<!-- ================= PROJECT 04 — Glider Project ================= -->
+<article class="project-page" id="p4">
+  <div class="wrap">
+    <div class="proj-masthead">
+      <span class="who">JORDAN REYES</span>
+      <span class="dwg">PROJECT 04 / 04</span>
+    </div>
+
+    <div class="proj-title">
+      <h3>Glider CAD Design</h3>
+      <div class="subtitle">5-Person Team · Design Lead · Spring 2024</div>
+    </div>
+
+    <div class="objective-box">
+      <span class="eyebrow">Objective</span>
+      <ul>
+        <li><b>What:</b> Produce a complete 3D CAD model of a glider in Siemens NX, translating precise measurements and specifications into the model.</li>
+        <li><b>Why / who:</b> Team design deliverable requiring accurate aerodynamic surface modeling and documentation for review and presentation.</li>
+        <li><b>Requirements:</b> Accurate airfoil geometry sourced from an industry-standard airfoil database; complete technical drawings for team review.</li>
+      </ul>
+    </div>
+
+    <div class="visual-row">
+      <div class="visual-block">
+        <div class="visual-placeholder">SYSTEM-LEVEL VISUAL<br>[Full glider CAD render, Siemens NX]</div>
+        <div class="visual-caption">Fig. 1 — [Caption: complete glider 3D model]</div>
+      </div>
+      <div class="visual-block">
+        <div class="visual-placeholder">TECHNICAL VISUAL<br>[Technical drawing sheet with<br>dimensions and airfoil profile]</div>
+        <div class="visual-caption">Fig. 2 — [Caption: technical drawing produced for team review]</div>
+      </div>
+    </div>
+
+    <div class="proj-columns">
+      <div class="col-block">
+        <h4>My Contribution</h4>
+        <ul>
+          <li><b>Led</b> the CAD design of the glider in Siemens NX as part of a 5-person team, translating precise measurements and specifications into a complete 3D model.</li>
+          <li><b>Plotted</b> real-world airfoil coordinates from an industry-standard airfoil database into CAD, learning coordinate import techniques to accurately model aerodynamic surfaces.</li>
+          <li><b>Produced</b> technical drawings of the glider in Siemens NX to document design specifications for team review and presentation.</li>
+        </ul>
+      </div>
+      <div class="col-block">
+        <h4>Evaluation</h4>
+        <ul>
+          <li>[Outcome — e.g. course grade, whether the model informed a build, presentation feedback.]</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="results-strip">
+      <div class="result-cell"><span class="k">Team size</span><span class="v">5-person team</span></div>
+      <div class="result-cell"><span class="k">Deliverables</span><span class="v">3D model + technical drawings</span></div>
+      <div class="result-cell"><span class="k">Tool</span><span class="v">Siemens NX</span></div>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Siemens NX</span><span class="tag">CAD</span><span class="tag">Aerodynamic modeling</span>
+    </div>
+  </div>
+</article>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="contact-section" style="padding-bottom: 20px;">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§</span><h2>Skills &amp; Tools</h2><div class="rule"></div></div>
+    <div class="tags" style="gap:9px;">
+      <span class="tag">MATLAB</span>
+      <span class="tag">Siemens NX</span>
+      <span class="tag">C++</span>
+      <span class="tag">Material testing &amp; selection</span>
+      <span class="tag">IC design</span>
+      <span class="tag">Technical report writing</span>
+      <span class="tag">Excel</span>
+      <span class="tag">Word</span>
+      <span class="tag">PowerPoint</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact-section">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">§</span><h2>Contact</h2><div class="rule"></div></div>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:jordan.reyes@example.com">
+        <span class="eyebrow">Email</span><strong>jordan.reyes@example.com</strong>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+        <span class="eyebrow">LinkedIn</span><strong>linkedin.com/in/your-handle</strong>
+      </a>
+      <a class="contact-card" href="https://github.com/your-handle" target="_blank" rel="noopener">
+        <span class="eyebrow">GitHub</span><strong>github.com/your-handle</strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="titleblock">
+      <div class="tb-title"><span class="v">Jordan Reyes — Aerospace Portfolio (following MIT AeroAstro CommKit structure)</span></div>
+      <div class="tb-cell"><span class="k">Drawn by</span><span class="v">[Your Name]</span></div>
+      <div class="tb-cell"><span class="k">Date</span><span class="v">[Aug 2026]</span></div>
+      <div class="tb-cell"><span class="k">Scale</span><span class="v">1:1</span></div>
+      <div class="tb-cell"><span class="k">Dwg No.</span><span class="v">JR-2026-A</span></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
