@@ -172,8 +172,9 @@
   .objective-box li{ margin-bottom:4px; }
 
   .visual-row{ display:grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 26px; }
-  @media (min-width:auto){ .visual-row{ grid-template-columns: 1fr 1fr; } }
-  .visual-block{ border: 1.5px solid var(--ink); background: var(--white); }
+  @media (min-width:700px){ .visual-row{ grid-template-columns: 1fr 1fr; } }
+  .visual-block{ border: 1.5px solid var(--ink); background: var(--white); min-width: 0; overflow: hidden; }
+  .visual-block img{ width:100%; max-width:100% height:auto; display:block; border-bottom: 1px solid var(--ink); }
   .visual-placeholder{
     aspect-ratio: 4 / 3; width:100%;
     background: repeating-linear-gradient(45deg, var(--paper-dim), var(--paper-dim) 8px, var(--white) 8px, var(--white) 16px);
